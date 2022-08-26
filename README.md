@@ -1,4 +1,5 @@
-# Wave-TextView
+# Wave-TextView  [![](https://jitpack.io/v/Mahmudxon/Wave-TextView.svg)](https://jitpack.io/#Mahmudxon/Wave-TextView)
 
-![](uploads/video.gif)
+
+<img src="https://raw.githubusercontent.com/Mahmudxon/Wave-TextView/master/uploads/video.gif" width="300">
 
