@@ -9,6 +9,7 @@ import android.graphics.*
 import uz.mahmudxon.textview.R
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
+import androidx.core.content.ContextCompat
 
 class WaveTextView : AppCompatTextView {
     interface AnimationSetupCallback {
@@ -107,7 +108,7 @@ class WaveTextView : AppCompatTextView {
      */
     private fun createShader() {
         if (wave == null) {
-            wave = resources.getDrawable(R.drawable.wave)
+            wave =   ContextCompat.getDrawable(context, R.drawable.wave)
         }
         val waveW = wave!!.intrinsicWidth
         val waveH = wave!!.intrinsicHeight

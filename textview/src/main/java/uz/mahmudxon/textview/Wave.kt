@@ -2,7 +2,6 @@ package uz.mahmudxon.textview
 
 import android.animation.Animator
 import android.animation.AnimatorSet
-import uz.mahmudxon.textview.WaveTextView
 import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
 import android.view.animation.LinearInterpolator
@@ -11,14 +10,14 @@ import uz.mahmudxon.textview.WaveTextView.AnimationSetupCallback
 class Wave {
     private var animatorSet: AnimatorSet? = null
     var animatorListener: Animator.AnimatorListener? = null
-    fun start(textView: WaveTextView) {
+    fun start(textView: WaveTextView, maskXDuration: Long = 1000, maskYDuration: Long = 10000) {
         val animate = Runnable {
             textView.isSinking = true
 
             // horizontal animation. 200 = wave.png width
             val maskXAnimator = ObjectAnimator.ofFloat(textView, "maskX", 0f, 200f)
             maskXAnimator.repeatCount = ValueAnimator.INFINITE
-            maskXAnimator.duration = 1000
+            maskXAnimator.duration = maskXDuration
             maskXAnimator.startDelay = 0
             val h = textView.height
 
@@ -29,7 +28,7 @@ class Wave {
                 ObjectAnimator.ofFloat(textView, "maskY", (h / 2).toFloat(), (-h / 2).toFloat())
             maskYAnimator.repeatCount = ValueAnimator.INFINITE
             maskYAnimator.repeatMode = ValueAnimator.REVERSE
-            maskYAnimator.duration = 10000
+            maskYAnimator.duration = maskYDuration
             maskYAnimator.startDelay = 0
 
             // now play both animations together
